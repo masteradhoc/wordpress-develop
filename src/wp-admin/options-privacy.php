@@ -84,6 +84,7 @@ if ( ! empty( $action ) ) {
 			require_once ABSPATH . 'wp-admin/includes/class-wp-privacy-policy-content.php';
 		}
 
+		$switched_locale             = switch_to_locale( get_locale() );
 		$privacy_policy_page_content = WP_Privacy_Policy_Content::get_default_content();
 		$privacy_policy_page_id      = wp_insert_post(
 			array(
@@ -94,6 +95,9 @@ if ( ! empty( $action ) ) {
 			),
 			true
 		);
+		if ( $switched_locale ) {
+			restore_previous_locale();
+		}
 
 		if ( is_wp_error( $privacy_policy_page_id ) ) {
 			add_settings_error(
