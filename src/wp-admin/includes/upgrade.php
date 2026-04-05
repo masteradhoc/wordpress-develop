@@ -383,6 +383,7 @@ Commenter avatars come from <a href="%s">Gravatar</a>.'
 		}
 
 		if ( ! empty( $privacy_policy_content ) ) {
+			$switched_locale     = switch_to_locale( get_locale() );
 			$privacy_policy_guid = get_option( 'home' ) . '/?page_id=3';
 
 			$wpdb->insert(
@@ -416,6 +417,10 @@ Commenter avatars come from <a href="%s">Gravatar</a>.'
 				)
 			);
 			update_option( 'wp_page_for_privacy_policy', 3 );
+
+			if ( $switched_locale ) {
+				restore_previous_locale();
+			}
 		}
 
 		// Set up default widgets for default theme.
