@@ -454,6 +454,9 @@ final class WP_Privacy_Policy_Content {
 	 * @return string The default policy content.
 	 */
 	public static function get_default_content( $description = false, $blocks = true ) {
+		// Use site locale, not the admin user's language preference.
+		$switched_locale = switch_to_locale( get_locale() );
+
 		$suggested_text = '<strong class="privacy-policy-tutorial">' . __( 'Suggested text:' ) . ' </strong>';
 		$content        = '';
 		$strings        = array();
@@ -684,6 +687,10 @@ final class WP_Privacy_Policy_Content {
 		 * @param bool     $description Whether policy descriptions should be included.
 		 * @param bool     $blocks      Whether the content should be formatted for the block editor.
 		 */
+		if ( $switched_locale ) {
+			restore_previous_locale();
+		}
+
 		return apply_filters_deprecated(
 			'wp_get_default_privacy_policy_content',
 			array( $content, $strings, $description, $blocks ),
@@ -698,7 +705,14 @@ final class WP_Privacy_Policy_Content {
 	 * @since 4.9.6
 	 */
 	public static function add_suggested_content() {
+		// Use site locale, not the admin user's language preference.
+		$switched_locale = switch_to_locale( get_locale() );
+
 		$content = self::get_default_content( false, false );
 		wp_add_privacy_policy_content( __( 'WordPress' ), $content );
+
+		if ( $switched_locale ) {
+			restore_previous_locale();
+		}
 	}
 }
