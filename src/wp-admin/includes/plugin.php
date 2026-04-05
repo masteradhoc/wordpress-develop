@@ -2402,6 +2402,18 @@ function plugin_sandbox_scrape( $plugin ) {
  *
  * Intended for use with the `'admin_init'` action.
  *
+ * Note: This function does not switch the locale. If your suggested text should follow
+ * the site language rather than the current admin user's language, wrap your call in
+ * `switch_to_locale()`/`restore_previous_locale()`:
+ *
+ *     $switched = switch_to_locale( get_locale() );
+ *     wp_add_privacy_policy_content( $plugin_name, __( 'Your text.' ) );
+ *     if ( $switched ) {
+ *         restore_previous_locale();
+ *     }
+ *
+ * Core handles this automatically for its own content but cannot do so for third-party plugins.
+ *
  * @since 4.9.6
  *
  * @param string $plugin_name The name of the plugin or theme that is suggesting content
