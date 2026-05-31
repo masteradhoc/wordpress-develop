@@ -3129,59 +3129,6 @@ div.action-links {
 	margin-right: 1em;
 }
 
-@media screen and (max-width: 771px) {
-	#plugin-information-title.with-banner {
-		height: 100px;
-	}
-
-	#plugin-information-title.with-banner h2 {
-		margin-top: 30px;
-		font-size: 20px;
-		line-height: 2;
-		max-width: 85%;
-	}
-
-	#plugin-information-title.with-banner div.vignette {
-		height: 100px;
-	}
-
-	#plugin-information-tabs {
-		overflow: hidden; /* clearfix */
-		padding: 0;
-		height: auto; /* let tabs wrap */
-	}
-
-	#plugin-information-tabs a.current {
-		margin-bottom: 0;
-		border-bottom: none;
-	}
-
-	#plugin-information .fyi {
-		float: none;
-		border: 1px solid #dcdcde;
-		position: static;
-		width: auto;
-		margin: 26px 26px 0;
-		padding-bottom: 0; /* reset from the two column height fix */
-	}
-
-	#section-holder {
-		position: static;
-		margin: 0;
-		padding-bottom: 70px; /* reset from the two column height fix, plus accommodate footer */
-	}
-
-	#plugin-information .fyi h3,
-	#plugin-information .fyi small {
-		display: none;
-	}
-
-	#plugin-information-footer {
-		padding: 12px 16px 0;
-		height: 46px;
-	}
-}
-
 /* Thickbox for the Plugin details modal. */
 #TB_window.plugin-details-modal {
 	background: #fff;
@@ -3248,14 +3195,6 @@ div.action-links {
 	font: normal 32px/29px 'dashicons';
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-/* move plugin install close icon to top on narrow screens */
-@media screen and (max-width: 830px) {
-	.plugin-details-modal #TB_closeWindowButton {
-		right: 0;
-		top: -30px;
-	}
 }
 
 /* @todo: move this. */
@@ -3962,6 +3901,14 @@ img {
 
 }
 
+/* move plugin install close icon to top on narrow screens */
+@media screen and (max-width: 830px) {
+	.plugin-details-modal #TB_closeWindowButton {
+		right: 0;
+		top: -30px;
+	}
+}
+
 @media screen and (max-width: 782px) {
 	html.wp-toolbar {
 		padding-top: var(--wp-admin--admin-bar--height);
@@ -4286,6 +4233,59 @@ img {
 	.wp-filter .search-form.search-plugins {
 		/* This element is a flex item. */
 		min-width: 100%;
+	}
+}
+
+@media screen and (max-width: 771px) {
+	#plugin-information-title.with-banner {
+		height: 100px;
+	}
+
+	#plugin-information-title.with-banner h2 {
+		margin-top: 30px;
+		font-size: 20px;
+		line-height: 2;
+		max-width: 85%;
+	}
+
+	#plugin-information-title.with-banner div.vignette {
+		height: 100px;
+	}
+
+	#plugin-information-tabs {
+		overflow: hidden; /* clearfix */
+		padding: 0;
+		height: auto; /* let tabs wrap */
+	}
+
+	#plugin-information-tabs a.current {
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+
+	#plugin-information .fyi {
+		float: none;
+		border: 1px solid #dcdcde;
+		position: static;
+		width: auto;
+		margin: 26px 26px 0;
+		padding-bottom: 0; /* reset from the two column height fix */
+	}
+
+	#section-holder {
+		position: static;
+		margin: 0;
+		padding-bottom: 70px; /* reset from the two column height fix, plus accommodate footer */
+	}
+
+	#plugin-information .fyi h3,
+	#plugin-information .fyi small {
+		display: none;
+	}
+
+	#plugin-information-footer {
+		padding: 12px 16px 0;
+		height: 46px;
 	}
 }
 
