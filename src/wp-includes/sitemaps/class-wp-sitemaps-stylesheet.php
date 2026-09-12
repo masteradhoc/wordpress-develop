@@ -25,7 +25,15 @@ class WP_Sitemaps_Stylesheet {
 	 * @param string $type Stylesheet type. Either 'sitemap' or 'index'.
 	 * @return never
 	 */
-	public function render_stylesheet( $type ) {}
+	public function render_stylesheet( $type ) {
+		wp_die(
+			sprintf(
+				__( 'Function %1$s is <strong>deprecated</strong> since version %2$s with no alternative available.' ),
+				__METHOD__,
+				'7.2.0'
+			)
+		);
+	}
 
 	/**
 	 * Returns the stylesheet for all sitemaps, except index.
