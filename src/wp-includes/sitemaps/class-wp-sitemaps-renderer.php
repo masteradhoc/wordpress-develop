@@ -36,7 +36,8 @@ class WP_Sitemaps_Renderer {
 		 *
 		 * @param string $sitemap_url Full URL for the sitemaps XSL file.
 		 */
-		apply_filters_deprecated( 'wp_sitemaps_stylesheet_url', array( $sitemap_url ), '7.2.0' );
+		apply_filters_deprecated( 'wp_sitemaps_stylesheet_url', array( '' ), '7.2.0' );
+
 		return '';
 	}
 
@@ -49,6 +50,8 @@ class WP_Sitemaps_Renderer {
 	 * @return string Empty string.
 	 */
 	public function get_sitemap_index_stylesheet_url() {
+		apply_filters_deprecated( 'wp_sitemaps_stylesheet_index_url', array( '' ), '7.2.0' );
+
 		return '';
 	}
 

@@ -68,6 +68,8 @@ class WP_Sitemaps_Stylesheet {
 	 * @return string Empty string.
 	 */
 	public function get_stylesheet_css() {
+		apply_filters_deprecated( 'wp_sitemaps_stylesheet_css', array( '' ), '7.2.0' );
+
 		return '';
 	}
 }
